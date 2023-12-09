@@ -1,5 +1,5 @@
-import { Button as MantineButton } from '@mantine/core';
-import style from './Button.module.scss';
+import { Button as MantineButton } from "@mantine/core";
+import style from "./Button.module.scss";
 
 interface Props {
   title?: string;
@@ -13,7 +13,7 @@ interface Props {
 export const Button = ({
   title,
   onClick,
-  color = 'grape.6',
+  color = "myColor.4",
   disabled,
   children,
   outline,
@@ -25,13 +25,13 @@ export const Button = ({
       style={
         outline
           ? {
-              background: 'transparent',
-              border: '2px solid #25262B',
+              background: "transparent",
+              border: "2px solid #25262B",
             }
           : { background: color }
       }
       onClick={onClick}
-      p={'16px 24px'}
+      p={"16px 24px"}
       className={style.button}
     >
       {children ? children : title}

@@ -1,5 +1,8 @@
 import { createTheme } from "@mantine/core";
+import { myColor } from "shared/constants/myColor";
 
 export const theme = createTheme({
-  /** Put your mantine theme override here */
+  colors: {
+    myColor,
+  },
 });

@@ -6,12 +6,16 @@ interface Props {
   title?: string;
 }
 
-const TitleWrapper = ({title}: Props) => {
+const TitleWrapper = ({ title }: Props) => {
   const location = useLocation();
-  const defaultTitle = authRoutes.find(item => item.path === location.pathname)?.title!;
-  
+  const defaultTitle = authRoutes.find(
+    (item) => item.path === location.pathname,
+  )?.title!;
+
   return (
-    <Title size={'h3'} color="dark.0">{title ? title : defaultTitle}</Title>
+    <Title size={"h3"} color="dark.0">
+      {title ? title : defaultTitle}
+    </Title>
   );
 };
 

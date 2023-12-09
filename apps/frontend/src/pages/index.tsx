@@ -1,25 +1,29 @@
 import { Flex, Stack } from "@mantine/core";
 import { observer } from "mobx-react-lite";
-import { Route, Routes, useLocation } from "react-router-dom";
-import { Button } from "shared/components/Buttons";
+import { Route, Routes, useLocation, Navigate } from "react-router-dom";
+import { HOME_ROUTE, MY_PATH_ROUTE } from "shared/constants/const";
+import { authRoutes } from "shared/constants/routes";
 
 export const Routing = observer(() => {
   const location = useLocation();
+
+  if (location.pathname === HOME_ROUTE) {
+    return <Navigate to={MY_PATH_ROUTE} />;
+  }
+
+  const data = [
+    { path: "/1", title: "1" },
+    { path: "/1", title: "2" },
+  ];
 
   return (
     <Flex className="wrapper" style={{ height: "100vh" }}>
       <Flex>
         <Stack gap={40}>
           <Routes>
-            <Route
-              path="/"
-              element={
-                <div>
-                  <Button title="123" />
-                </div>
-              }
-            />
-            <Route path="*" element={<div>121233</div>} />
+            {authRoutes.map(({ path, Component }) => (
+              <Route key={path} path={path} element={<Component />} />
+            ))}
           </Routes>
         </Stack>
       </Flex>

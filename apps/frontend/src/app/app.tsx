@@ -6,13 +6,7 @@ import { MantineProvider } from "@mantine/core";
 import { theme } from "./styles/theme";
 
 const App = () => {
-  return (
-    <div className="app">
-      <MantineProvider theme={theme}>
-        <Routing />
-      </MantineProvider>
-    </div>
-  );
+  return <Routing />;
 };
 
 export default withProviders(App);
