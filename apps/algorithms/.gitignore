@@ -1,4 +1,4 @@
 LofDT
 secrets.json
-DATA/
+DATA/*
 !DATA/less_semantic_words.txt
