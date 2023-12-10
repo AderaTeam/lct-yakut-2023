@@ -116,9 +116,12 @@ legend {
 
 #nav a.active,
 a.hover div {
-  background: #373a40;
-  color: #c1c2c5;
+  background: #ffe7f7;
+  color: #fb0878;
   border-radius: 12px;
+  svg {
+    color: #fb0878;
+  }
 }
 
 html {
@@ -127,6 +130,7 @@ html {
   overflow-x: hidden;
   -ms-overflow-style: none; /* IE и Edge */
   scrollbar-width: none;
+  font-family: "Manrope", sans-serif;
   &::-webkit-scrollbar {
     display: none;
   }

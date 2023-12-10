@@ -5,10 +5,19 @@ import {
   LOGIN_ROUTE,
   MY_PATH_ROUTE,
   NEWS_ROUTE,
+  PROFILE_ROUTE,
   REGISTRATION_ROUTE,
   TRAINING_ROUTE,
 } from "shared/constants/const";
 import { lazy } from "react";
+import {
+  IconArticle,
+  IconChessRook,
+  IconMessageChatbot,
+  IconMessages,
+  IconRoute,
+  IconSchool,
+} from "@tabler/icons-react";
 
 const auth = lazy(() => import("pages/assistant"));
 const myPath = lazy(() => import("pages/my-path"));
@@ -24,36 +33,49 @@ export const authRoutes = [
     Component: myPath,
     title: "Мой путь",
     isAdmin: true,
-  },
-  {
-    path: COMMUNITY_ROUTE,
-    Component: community,
-    title: "Мой путь",
-    isAdmin: true,
-  },
-  {
-    path: EDUCATIONS_ROUTE,
-    Component: educations,
-    title: "Мой путь",
-    isAdmin: true,
+    icon: IconRoute,
   },
   {
     path: NEWS_ROUTE,
     Component: news,
-    title: "Мой путь",
+    title: "Лента новостей",
     isAdmin: true,
+    icon: IconArticle,
   },
   {
-    path: ASSISTANT_ROUTE,
-    Component: assistant,
-    title: "Мой путь",
+    path: COMMUNITY_ROUTE,
+    Component: community,
+    title: "Сообщества",
     isAdmin: true,
+    icon: IconMessages,
   },
   {
     path: TRAINING_ROUTE,
     Component: training,
-    title: "Мой путь",
+    title: "Тренажер",
     isAdmin: true,
+    icon: IconChessRook,
+  },
+  {
+    path: EDUCATIONS_ROUTE,
+    Component: educations,
+    title: "Уч. заведения",
+    isAdmin: true,
+    icon: IconSchool,
+  },
+  {
+    path: ASSISTANT_ROUTE,
+    Component: assistant,
+    title: "Ассистент",
+    isAdmin: true,
+    icon: IconMessageChatbot,
+  },
+  {
+    path: PROFILE_ROUTE,
+    Component: assistant,
+    title: "Профиль",
+    isAdmin: true,
+    isHide: true,
   },
 ];
 

@@ -3,6 +3,7 @@ import { observer } from "mobx-react-lite";
 import { Route, Routes, useLocation, Navigate } from "react-router-dom";
 import { HOME_ROUTE, MY_PATH_ROUTE } from "shared/constants/const";
 import { authRoutes } from "shared/constants/routes";
+import Navbar from "widgets/navbar";
 
 export const Routing = observer(() => {
   const location = useLocation();
@@ -11,14 +12,10 @@ export const Routing = observer(() => {
     return <Navigate to={MY_PATH_ROUTE} />;
   }
 
-  const data = [
-    { path: "/1", title: "1" },
-    { path: "/1", title: "2" },
-  ];
-
   return (
-    <Flex className="wrapper" style={{ height: "100vh" }}>
+    <Flex bg={"gray.0"} className="wrapper" style={{ height: "100vh" }}>
       <Flex>
+        <Navbar />
         <Stack gap={40}>
           <Routes>
             {authRoutes.map(({ path, Component }) => (

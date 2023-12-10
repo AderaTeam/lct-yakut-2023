@@ -7,3 +7,4 @@ export const EDUCATIONS_ROUTE = "/educations";
 export const NEWS_ROUTE = "/news";
 export const ASSISTANT_ROUTE = "/assistant";
 export const TRAINING_ROUTE = "/training";
+export const PROFILE_ROUTE = "/profile";
