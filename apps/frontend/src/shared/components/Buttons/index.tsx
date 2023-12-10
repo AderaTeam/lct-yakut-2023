@@ -26,12 +26,12 @@ export const Button = ({
         outline
           ? {
               background: "transparent",
-              border: "2px solid #25262B",
+              border: "1px solid #DEE2E6",
             }
           : { background: color }
       }
       onClick={onClick}
-      p={"16px 24px"}
+      p={"16px 32px"}
       className={style.button}
     >
       {children ? children : title}

@@ -11,7 +11,7 @@ interface Props {
 
 export const Card = ({ p = "32px", spasing = 16, children, w, h }: Props) => {
   return (
-    <Stack p={p} gap={spasing} bg={"dark.7"} w={w} h={h} className={style.card}>
+    <Stack p={p} gap={spasing} bg={"#FFFF"} w={w} h={h} className={style.card}>
       {children}
     </Stack>
   );
