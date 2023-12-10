@@ -8,8 +8,12 @@ import rank from "shared/assets/rank.svg";
 import avatar from "shared/assets/avatar.png";
 
 import style from "./ProfileCard.module.scss";
+import { useContext } from "react";
+import { Context } from "main";
 
 export const ProfileCard = () => {
+  const { UStore } = useContext(Context);
+
   return (
     <Card radius={32}>
       <Card.Section
@@ -43,11 +47,11 @@ export const ProfileCard = () => {
           </Flex>
           <Stack gap={6}>
             <Flex align={"center"} gap={12}>
-              <Text className={style.name}>Эмили Сторан</Text>
-              <Tag variant="light">Топ 6</Tag>
+              <Text className={style.name}>{UStore.user.username}</Text>
+              <Tag variant="light">Топ {UStore.user.rating}</Tag>
             </Flex>
             <Flex align={"center"} gap={8}>
-              <Text className={style.rank}>Маг - самоучка</Text>
+              <Text className={style.rank}>{UStore.user.rank}</Text>
               <Image h={24} w={24} src={rank} />
             </Flex>
           </Stack>
