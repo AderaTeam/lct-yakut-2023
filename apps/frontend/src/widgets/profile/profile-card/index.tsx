@@ -56,8 +56,11 @@ export const ProfileCard = () => {
             </Flex>
           </Stack>
           <Flex gap={8}>
-            <Tag variant="outline">#Frontend-разработчик</Tag>
-            <Tag variant="outline">#Программная инженерия</Tag>
+            {UStore.user.path.map((item) => (
+              <Tag key={item.id} variant="outline">
+                {item.name}
+              </Tag>
+            ))}
           </Flex>
         </Stack>
       </Card.Section>

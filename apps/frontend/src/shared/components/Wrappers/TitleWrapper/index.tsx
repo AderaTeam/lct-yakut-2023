@@ -2,6 +2,8 @@ import { useLocation } from "react-router-dom";
 import { authRoutes } from "shared/constants/routes";
 import { Title } from "@mantine/core";
 
+import style from "./TitleWrapper.module.scss";
+
 interface Props {
   title?: string;
 }
@@ -13,7 +15,7 @@ const TitleWrapper = ({ title }: Props) => {
   )?.title!;
 
   return (
-    <Title size={"h3"} color="dark.0">
+    <Title className={style.title} size={"h3"}>
       {title ? title : defaultTitle}
     </Title>
   );

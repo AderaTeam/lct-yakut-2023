@@ -21,6 +21,10 @@ export default class UserStore {
       role: "",
       rating: 1,
       points: 20,
+      path: [
+        { id: 0, name: "Frontend - разработка" },
+        { id: 1, name: "Программная инженерия" },
+      ],
     };
   }
 

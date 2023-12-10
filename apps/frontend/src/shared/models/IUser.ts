@@ -1,3 +1,5 @@
+import { IPath } from "./IPath";
+
 export interface IUser {
   email: string;
   isAnalyzed: boolean;
@@ -7,4 +9,5 @@ export interface IUser {
   rank: string;
   rating: number;
   points: number;
+  path: IPath[];
 }

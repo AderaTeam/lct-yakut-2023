@@ -17,7 +17,7 @@ const MainWrapper = ({
   isHideTitle,
 }: Props) => {
   return (
-    <Stack p={"32px 40px"} gap={32}>
+    <Stack p={"32px 40px"} gap={48}>
       {CustomTitle ? (
         <CustomTitle />
       ) : (
