@@ -29,6 +29,7 @@ export const Button = ({
           ? {
               background: "transparent",
               border: "1px solid #DEE2E6",
+              color: "#212529",
             }
           : { background: color }
       }

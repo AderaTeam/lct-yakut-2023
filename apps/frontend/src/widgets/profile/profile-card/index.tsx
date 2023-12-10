@@ -1,5 +1,5 @@
 import { Avatar, Card, Flex, Stack, Image, Text } from "@mantine/core";
-import { Button } from "shared/components/Buttons";
+import { Button } from "shared/components/Button";
 import { IconPencil, IconSettings } from "@tabler/icons-react";
 import { Tag } from "shared/components/Tag";
 

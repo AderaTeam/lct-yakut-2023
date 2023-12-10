@@ -4,22 +4,22 @@ import { IPath } from "shared/models/IPath";
 
 interface ActivePathSwitchProps {
   path: IPath[];
-  setActivePath: React.Dispatch<React.SetStateAction<number>>;
-  activePath: number;
+  setActivePathId: React.Dispatch<React.SetStateAction<number>>;
+  activePathId: number;
 }
 
 export const ActivePathSwitch = ({
   path,
-  activePath,
-  setActivePath,
+  activePathId,
+  setActivePathId,
 }: ActivePathSwitchProps) => {
   return (
     <Flex gap={12}>
       {path.map((item) => (
         <Chip
-          aciveId={activePath}
+          aciveId={activePathId}
           id={item.id}
-          onClick={() => setActivePath(item.id)}
+          onClick={() => setActivePathId(item.id)}
           key={item.id}
           text={item.name}
         />

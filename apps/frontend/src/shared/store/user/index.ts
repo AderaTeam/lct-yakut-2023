@@ -4,6 +4,7 @@ import { API_URL } from "shared/api";
 import { IUser } from "shared/models/IUser";
 import { AuthResponse } from "shared/models/response/AuthResponse";
 import AuthServices from "shared/services/AuthServices";
+import { data } from "./mockdata";
 
 export default class UserStore {
   user = {} as IUser;
@@ -12,20 +13,7 @@ export default class UserStore {
 
   constructor() {
     makeAutoObservable(this);
-    this.user = {
-      username: "Test User",
-      isAnalyzed: false,
-      id: 0,
-      email: "",
-      rank: "Незнайка",
-      role: "",
-      rating: 1,
-      points: 20,
-      path: [
-        { id: 0, name: "Frontend - разработка" },
-        { id: 1, name: "Программная инженерия" },
-      ],
-    };
+    this.user = data;
   }
 
   setAuth(bool: boolean) {

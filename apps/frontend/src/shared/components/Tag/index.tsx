@@ -11,13 +11,19 @@ interface Props {
   onClick?: () => void;
 }
 
-export const Tag = ({ text, variant, children, onClick }: Props) => {
+export const Tag = ({
+  text,
+  variant,
+  children,
+  onClick,
+  color = "myColor",
+}: Props) => {
   const isLink = onClick ? true : false;
 
   return (
     <Badge
       onClick={onClick}
-      color="myColor"
+      color={color}
       p={"6px 12px"}
       variant={variant}
       className={isLink ? style["hover-tag"] : style.tag}

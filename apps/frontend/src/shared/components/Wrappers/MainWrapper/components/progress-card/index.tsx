@@ -1,6 +1,6 @@
-import { Flex, Stack, Text } from "@mantine/core";
+import { Flex, Stack } from "@mantine/core";
 import { IconChevronRight } from "@tabler/icons-react";
-import { Button } from "shared/components/Buttons";
+import { Button } from "shared/components/Button";
 import { Card } from "shared/components/Card";
 
 export const ProgressCard = () => {

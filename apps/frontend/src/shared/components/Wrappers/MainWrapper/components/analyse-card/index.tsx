@@ -1,5 +1,5 @@
 import { Avatar, Card, Flex, Stack, Text } from "@mantine/core";
-import { Button } from "shared/components/Buttons";
+import { Button } from "shared/components/Button";
 import { IconChevronRight } from "@tabler/icons-react";
 
 import mage from "shared/assets/analyse-mage.png";

@@ -21,10 +21,10 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <StrictMode>
-    <Context.Provider value={{ UStore }}>
-      <MantineProvider theme={theme}>
+    <MantineProvider theme={theme}>
+      <Context.Provider value={{ UStore }}>
         <App />
-      </MantineProvider>
-    </Context.Provider>
+      </Context.Provider>
+    </MantineProvider>
   </StrictMode>,
 );

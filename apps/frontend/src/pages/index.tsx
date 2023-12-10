@@ -13,10 +13,10 @@ export const Routing = observer(() => {
   }
 
   return (
-    <Flex bg={"gray.0"} className="wrapper" style={{ height: "100vh" }}>
+    <Flex className="wrapper" bg={"gray.0"} style={{ height: "100vh" }}>
       <Flex>
         <Navbar />
-        <Stack gap={40}>
+        <Stack>
           <Routes>
             {authRoutes.map(({ path, Component }) => (
               <Route key={path} path={path} element={<Component />} />
