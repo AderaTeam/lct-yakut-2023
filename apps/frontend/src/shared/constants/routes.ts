@@ -26,6 +26,7 @@ const educations = lazy(() => import("pages/educations"));
 const news = lazy(() => import("pages/news"));
 const assistant = lazy(() => import("pages/assistant"));
 const training = lazy(() => import("pages/training"));
+const profile = lazy(() => import("pages/profile"));
 
 export const authRoutes = [
   {
@@ -72,7 +73,7 @@ export const authRoutes = [
   },
   {
     path: PROFILE_ROUTE,
-    Component: assistant,
+    Component: profile,
     title: "Профиль",
     isAdmin: true,
     isHide: true,
