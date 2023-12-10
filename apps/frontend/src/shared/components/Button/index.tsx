@@ -14,7 +14,7 @@ interface Props {
 export const Button = ({
   title,
   onClick,
-  color = "myColor.4",
+  color = "myColor.5",
   disabled,
   children,
   outline,
