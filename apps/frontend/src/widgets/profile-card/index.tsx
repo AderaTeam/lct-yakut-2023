@@ -4,7 +4,7 @@ import { IconPencil, IconSettings } from "@tabler/icons-react";
 import { Tag } from "shared/components/Tag";
 
 import profileBg from "shared/assets/profile-bg.png";
-import rang from "shared/assets/rang.svg";
+import rank from "shared/assets/rank.svg";
 import avatar from "shared/assets/avatar.png";
 
 import style from "./ProfileCard.module.scss";
@@ -47,8 +47,8 @@ export const ProfileCard = () => {
               <Tag variant="light">Топ 6</Tag>
             </Flex>
             <Flex align={"center"} gap={8}>
-              <Text className={style.rang}>Маг - самоучка</Text>
-              <Image h={24} w={24} src={rang} />
+              <Text className={style.rank}>Маг - самоучка</Text>
+              <Image h={24} w={24} src={rank} />
             </Flex>
           </Stack>
           <Flex gap={8}>

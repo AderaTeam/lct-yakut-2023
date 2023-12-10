@@ -6,12 +6,23 @@ type Props = {
   CustomTitle?: () => JSX.Element;
   title?: string;
   fullWidth?: boolean;
+  isHideTitle?: boolean;
 };
 
-const MainWrapper = ({ children, CustomTitle, title, fullWidth }: Props) => {
+const MainWrapper = ({
+  children,
+  CustomTitle,
+  title,
+  fullWidth,
+  isHideTitle,
+}: Props) => {
   return (
     <Stack p={"32px 40px"} gap={32}>
-      {CustomTitle ? <CustomTitle /> : <TitleWrapper title={title} />}
+      {CustomTitle ? (
+        <CustomTitle />
+      ) : (
+        !isHideTitle && <TitleWrapper title={title} />
+      )}
       <Flex justify="space-between" gap={16}>
         {!fullWidth ? (
           <>

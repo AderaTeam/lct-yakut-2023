@@ -1,5 +1,7 @@
+import MainWrapper from "shared/components/Wrappers/MainWrapper";
+
 const NewsPage = () => {
-  return <>page</>;
+  return <MainWrapper></MainWrapper>;
 };
 
 export default NewsPage;

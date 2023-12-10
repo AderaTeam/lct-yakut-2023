@@ -1,5 +1,7 @@
+import MainWrapper from "shared/components/Wrappers/MainWrapper";
+
 const MyPathPage = () => {
-  return <div>13123</div>;
+  return <MainWrapper></MainWrapper>;
 };
 
 export default MyPathPage;

@@ -5,7 +5,7 @@ import { ProfileCard } from "widgets/profile-card";
 
 const ProfilePage = () => {
   return (
-    <MainWrapper>
+    <MainWrapper isHideTitle>
       <Stack gap={8}>
         <ProfileCard />
         <ProfileAchievement />
