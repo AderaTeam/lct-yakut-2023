@@ -8,6 +8,7 @@ interface Props {
   disabled?: boolean;
   children?: React.ReactNode;
   outline?: boolean;
+  fullWidth?: boolean;
 }
 
 export const Button = ({
@@ -17,6 +18,7 @@ export const Button = ({
   disabled,
   children,
   outline,
+  fullWidth,
 }: Props) => {
   return (
     <MantineButton
@@ -32,7 +34,7 @@ export const Button = ({
       }
       onClick={onClick}
       p={"16px 32px"}
-      className={style.button}
+      className={!fullWidth ? style.button : style["button-full-width"]}
     >
       {children ? children : title}
     </MantineButton>

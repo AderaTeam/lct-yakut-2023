@@ -1,9 +1,10 @@
 import { Flex, Stack } from "@mantine/core";
 import TitleWrapper from "../TitleWrapper";
-import { AnalyseCard } from "./components/profile-analyse-card";
+import { AnalyseCard } from "./components/analyse-card";
 import { observer } from "mobx-react-lite";
 import { useContext } from "react";
 import { Context } from "main";
+import { ProgressCard } from "./components/progress-card";
 
 type Props = {
   children?: React.ReactNode[];
@@ -18,19 +19,22 @@ const MainWrapper = observer(
     const { UStore } = useContext(Context);
 
     return (
-      <Stack p={"32px 40px"} gap={48}>
-        {CustomTitle ? (
-          <CustomTitle />
-        ) : (
-          !isHideTitle && <TitleWrapper title={title} />
-        )}
+      <Stack p={"32px 40px"}>
         <Flex justify="space-between" gap={16}>
           {!fullWidth ? (
             <>
-              <Stack w={1019}>{children ? children[0] : <></>}</Stack>
+              <Stack gap={48} w={1019}>
+                {CustomTitle ? (
+                  <CustomTitle />
+                ) : (
+                  !isHideTitle && <TitleWrapper title={title} />
+                )}
+                {children ? children[0] : <></>}
+              </Stack>
               <Stack w={497}>
                 {children ? (
                   <Stack gap={24}>
+                    <ProgressCard />
                     {!UStore.user.isAnalyzed && <AnalyseCard />}
                     {children[1]}
                   </Stack>

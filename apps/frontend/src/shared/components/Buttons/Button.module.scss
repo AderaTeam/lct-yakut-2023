@@ -11,3 +11,11 @@
     background: #25262b;
   }
 }
+
+.button-full-width {
+  @extend .button;
+  width: auto;
+  span {
+    width: 100%;
+  }
+}
