@@ -4,15 +4,17 @@ import { IconPencil, IconSettings } from "@tabler/icons-react";
 import { Tag } from "shared/components/Tag";
 
 import profileBg from "shared/assets/profile-bg.png";
-import rank from "shared/assets/rank.svg";
 import avatar from "shared/assets/avatar.png";
 
 import style from "./ProfileCard.module.scss";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Context } from "main";
+import { ProfileInfo } from "./components/ProfileInfo";
+import { observer } from "mobx-react-lite";
 
-export const ProfileCard = () => {
+export const ProfileCard = observer(() => {
   const { UStore } = useContext(Context);
+  const [isEdit, setIsEdit] = useState(false);
 
   return (
     <Card radius={32}>
@@ -38,32 +40,16 @@ export const ProfileCard = () => {
                   Настройки <IconSettings color="#ADB5BD" stroke={1.5} />
                 </Flex>
               </Button>
-              <Button outline>
+              <Button onClick={() => setIsEdit(!isEdit)} outline>
                 <Flex gap={8}>
                   Редактировать <IconPencil color="#ADB5BD" stroke={1.5} />
                 </Flex>
               </Button>
             </Flex>
           </Flex>
-          <Stack gap={6}>
-            <Flex align={"center"} gap={12}>
-              <Text className={style.name}>{UStore.user.username}</Text>
-              <Tag variant="light">Топ {UStore.user.rating}</Tag>
-            </Flex>
-            <Flex align={"center"} gap={8}>
-              <Text className={style.rank}>{UStore.user.rank}</Text>
-              <Image h={24} w={24} src={rank} />
-            </Flex>
-          </Stack>
-          <Flex gap={8}>
-            {UStore.user.path.map((item) => (
-              <Tag key={item.id} variant="outline">
-                {item.name}
-              </Tag>
-            ))}
-          </Flex>
+          {isEdit ? <></> : <ProfileInfo {...UStore.user} />}
         </Stack>
       </Card.Section>
     </Card>
   );
-};
+});

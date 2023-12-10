@@ -9,9 +9,9 @@ import od from "shared/assets/platforms/od.svg";
 import tg from "shared/assets/platforms/tg.svg";
 import more from "shared/assets/platforms/more.svg";
 
-import style from "./ProfileAnalyseCard.module.scss";
+import style from "./AnalyseCard.module.scss";
 
-export const ProfileAnalyseCard = () => {
+export const AnalyseCard = () => {
   const icons = [steam, vk, od, tg, more];
 
   return (
