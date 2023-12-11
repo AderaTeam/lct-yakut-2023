@@ -8,3 +8,4 @@ export const NEWS_ROUTE = "/news";
 export const ASSISTANT_ROUTE = "/assistant";
 export const TRAINING_ROUTE = "/training";
 export const PROFILE_ROUTE = "/profile";
+export const MY_SOCIALS_ROUTE = "/my_socials";

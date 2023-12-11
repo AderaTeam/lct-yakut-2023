@@ -1,6 +1,6 @@
 import { Flex, Stack, Text } from "@mantine/core";
 import { FC } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { authRoutes } from "shared/constants/routes";
 
 import style from "./Navbar.module.scss";
@@ -14,8 +14,6 @@ interface LinksProps {
 }
 
 const NavbarLink = ({ icon: Icon, path, title }: LinksProps) => {
-  const location = useLocation();
-
   return (
     <NavLink to={path}>
       <Flex className={style["navbar__link"]} align="center" gap={12}>
@@ -30,7 +28,7 @@ const NavbarLink = ({ icon: Icon, path, title }: LinksProps) => {
 
 const NavbarLinksGroup = () => {
   const links = authRoutes.map((link) => {
-    if (!link.isHide) {
+    if (!link?.isHide) {
       return <NavbarLink {...link} key={link.title} />;
     }
   });

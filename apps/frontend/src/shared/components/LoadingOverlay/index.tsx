@@ -8,9 +8,9 @@ export const LoadingOverlay = ({ isLoading }: Props) => {
   return (
     <MantineLoadingOverlay
       visible={isLoading || false}
-      loaderProps={<Loader color="grape.5" size={"xl"} />}
-      overlayProps={{ blur: 0.6, color: "#373A40" }}
-      style={{ borderRadius: "24px" }}
+      loaderProps={{ color: "myColor", type: "dots" }}
+      overlayProps={{ blur: 0.3 }}
+      style={{ borderRadius: "32px" }}
     />
   );
 };

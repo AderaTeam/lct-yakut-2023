@@ -4,6 +4,7 @@ import {
   EDUCATIONS_ROUTE,
   LOGIN_ROUTE,
   MY_PATH_ROUTE,
+  MY_SOCIALS_ROUTE,
   NEWS_ROUTE,
   PROFILE_ROUTE,
   REGISTRATION_ROUTE,
@@ -27,6 +28,7 @@ const news = lazy(() => import("pages/news"));
 const assistant = lazy(() => import("pages/assistant"));
 const training = lazy(() => import("pages/training"));
 const profile = lazy(() => import("pages/profile"));
+const mySocials = lazy(() => import("pages/my_socials"));
 
 export const authRoutes = [
   {
@@ -75,6 +77,13 @@ export const authRoutes = [
     path: PROFILE_ROUTE,
     Component: profile,
     title: "Профиль",
+    isAdmin: true,
+    isHide: true,
+  },
+  {
+    path: MY_SOCIALS_ROUTE,
+    Component: mySocials,
+    title: "Мои соц. сети",
     isAdmin: true,
     isHide: true,
   },

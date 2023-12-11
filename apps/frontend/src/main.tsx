@@ -20,11 +20,9 @@ const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
 );
 root.render(
-  <StrictMode>
+  <Context.Provider value={{ UStore }}>
     <MantineProvider theme={theme}>
-      <Context.Provider value={{ UStore }}>
-        <App />
-      </Context.Provider>
+      <App />
     </MantineProvider>
-  </StrictMode>,
+  </Context.Provider>,
 );

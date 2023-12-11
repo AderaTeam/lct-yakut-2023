@@ -28,14 +28,20 @@ const MainWrapper = observer(
               ) : (
                 !isHideTitle && <TitleWrapper title={title} />
               )}
-              <div className="wrapper">{children ? children[0] : <></>}</div>
+              <div className="wrapper">
+                {children?.length ? children[0] : <></>}
+              </div>
             </Stack>
             <Stack w={497}>
               <div className="wrapper">
-                {children ? (
+                {children?.length ? (
                   <Stack gap={24}>
-                    <ProgressCard />
-                    {!UStore?.user?.isAnalyzed && <AnalyseCard />}
+                    {/* <ProgressCard /> */}
+                    {!UStore?.user?.isAnalyzed ? (
+                      <AnalyseCard />
+                    ) : (
+                      <AnalyseCard isAnalysed />
+                    )}
                     {children[1]}
                   </Stack>
                 ) : (
@@ -45,7 +51,7 @@ const MainWrapper = observer(
             </Stack>
           </Flex>
         ) : (
-          <Stack gap={0}>{children ? children[0] : <></>}</Stack>
+          <Stack gap={0}>{children?.length ? children[0] : <></>}</Stack>
         )}
       </Stack>
     );

@@ -26,11 +26,17 @@ export const Button = ({
       color={color}
       style={
         outline
-          ? {
-              background: "transparent",
-              border: "1px solid #DEE2E6",
-              color: "#212529",
-            }
+          ? disabled
+            ? {
+                background: "transparent",
+                color: "#ADB5BD",
+                border: "1px solid #ADB5BD",
+              }
+            : {
+                background: "transparent",
+                border: "1px solid #ADB5BD",
+                color: "#212529",
+              }
           : { background: color }
       }
       onClick={onClick}
