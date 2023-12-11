@@ -9,6 +9,7 @@ export class AuthController {
     constructor(
         private readonly authService: AuthService
     ){}
+    
     @Post()
     public async createOne(@Body() userDto: UserDto)
     {

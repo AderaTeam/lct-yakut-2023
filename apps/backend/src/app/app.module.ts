@@ -4,6 +4,7 @@ import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import ormconfig from '../ormconfig';
 import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from '../auth/auth.module';
+import { AchievementModule } from '../achievement/achievement.module';
 
 
 @Module({
@@ -11,6 +12,7 @@ import { AuthModule } from '../auth/auth.module';
     ConfigModule.forRoot(),
     UserModule,
     AuthModule,
+    AchievementModule,
     TypeOrmModule.forRoot(ormconfig as TypeOrmModuleOptions),
   ],
   controllers: [],

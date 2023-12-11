@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany, JoinColumn } from "typeorm"
-import { AchievementOwned } from "./achievementOwned.entity"
+import { AchievementOwned } from "../../achievement/entities/achievementOwned.entity"
 
 @Entity()
 export class User {
@@ -24,7 +24,6 @@ export class User {
     @Column(
         {
             nullable: true,
-
         }
     )
     role: string

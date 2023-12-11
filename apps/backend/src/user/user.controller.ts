@@ -17,6 +17,12 @@ export class UserController
         return await this.userService.getAll()
     }
 
+    @Get(':userid/achievements')
+    public async getAchievementsById(@Param('userid') userid: number)
+    {
+        return await this.userService.getAchievements(userid)
+    }
+
     @Get(':userid')
     public async getOneById(@Param('userid') userid: number)
     {
