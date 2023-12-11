@@ -1,5 +1,4 @@
 import { Context } from "main";
-
 import { useState, useContext, useEffect } from "react";
 import { ActivePathSwitch } from "./components/ActivePathSwitch";
 import { Flex, Stack } from "@mantine/core";
@@ -24,6 +23,10 @@ export const MyPathProgress = observer(() => {
     }
   }, [activePathId]);
 
+  const handleStepComplete = (id: number) => {
+    console.log(id);
+  };
+
   return (
     <Stack gap={32}>
       <Flex justify={"space-between"} align={"center"}>
@@ -34,7 +37,10 @@ export const MyPathProgress = observer(() => {
         />
         <PathInfo activePath={activePath} />
       </Flex>
-      <PathSteps activePath={activePath} />
+      <PathSteps
+        handleStepComplete={handleStepComplete}
+        activePath={activePath}
+      />
     </Stack>
   );
 });

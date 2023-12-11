@@ -10,12 +10,14 @@ export const Content = (content: IPathStepContent) => {
       {content.link && (
         <Stack gap={6}>
           <Text className={style["content-title"]}>Ссылка на видео:</Text>
-          <Text
-            style={{ textDecoration: "underline" }}
-            className={style["content-text"]}
-          >
-            {content.link}
-          </Text>
+          <a target="_blank" href={content.link}>
+            <Text
+              style={{ textDecoration: "underline" }}
+              className={style["content-text"]}
+            >
+              {content.link}
+            </Text>
+          </a>
         </Stack>
       )}
       {content.text && (

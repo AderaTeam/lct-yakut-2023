@@ -14,7 +14,12 @@ import { ActionIcon } from "shared/components/ActionIcon";
 import { useState } from "react";
 import { Content } from "./Content";
 
-export const Step = (step: IPathStep) => {
+interface StepProps {
+  step: IPathStep;
+  handleStepComplete: Function;
+}
+
+export const Step = ({ step, handleStepComplete }: StepProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
@@ -63,7 +68,7 @@ export const Step = (step: IPathStep) => {
             ))}
           </Flex>
           {step.status === "В процессе" && (
-            <Button>
+            <Button onClick={() => handleStepComplete(step.step)}>
               <Flex gap={8}>
                 Подтвердить <IconChevronRight stroke={1.5} color="#FFFF" />
               </Flex>
