@@ -1,4 +1,5 @@
 import { Flex, Text } from "@mantine/core";
+import { endingFormater } from "shared/helpers/endingFormater";
 import { IPath } from "shared/models/IPath";
 
 interface PathInfoProps {
@@ -18,23 +19,13 @@ export const PathInfo = ({ activePath }: PathInfoProps) => {
       <p className="text">
         Пройдено:{" "}
         <span className="text bold">
-          {stepsCount.complete}{" "}
-          {stepsCount?.complete! === 1
-            ? "шаг"
-            : stepsCount?.complete! <= 4
-            ? "шага"
-            : "шагов"}
+          {stepsCount.complete} {endingFormater(stepsCount?.complete!)}
         </span>
       </p>
       <p className="text">
         Осталось:{" "}
         <span className="text bold">
-          {stepsCount.left}{" "}
-          {stepsCount?.left! === 1
-            ? "шаг"
-            : stepsCount?.left! <= 4
-            ? "шага"
-            : "шагов"}
+          {stepsCount.left} {endingFormater(stepsCount?.left!)}
         </span>
       </p>
     </Flex>

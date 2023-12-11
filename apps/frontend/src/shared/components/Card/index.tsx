@@ -9,6 +9,7 @@ interface Props {
   h?: number | string;
   mt?: number;
   mb?: number;
+  bg?: string;
 }
 
 export const Card = ({
@@ -19,6 +20,7 @@ export const Card = ({
   h,
   mt,
   mb,
+  bg = "#FFFF",
 }: Props) => {
   return (
     <Stack
@@ -26,7 +28,7 @@ export const Card = ({
       mb={mb}
       p={p}
       gap={spasing}
-      bg={"#FFFF"}
+      bg={bg}
       w={w}
       h={h}
       className={style.card}

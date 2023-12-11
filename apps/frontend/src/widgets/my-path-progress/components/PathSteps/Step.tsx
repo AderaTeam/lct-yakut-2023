@@ -5,9 +5,18 @@ import { StepProgressBar } from "./StepProgressBar";
 import { Card } from "shared/components/Card";
 import { Tag } from "shared/components/Tag";
 import { Button } from "shared/components/Button";
-import { IconChevronRight } from "@tabler/icons-react";
+import {
+  IconChevronDown,
+  IconChevronRight,
+  IconChevronUp,
+} from "@tabler/icons-react";
+import { ActionIcon } from "shared/components/ActionIcon";
+import { useState } from "react";
+import { Content } from "./Content";
 
 export const Step = (step: IPathStep) => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
   return (
     <Flex h={"100%"} gap={16} align={"center"}>
       <StepProgressBar {...step} />
@@ -23,7 +32,21 @@ export const Step = (step: IPathStep) => {
               </h3>
               <h2 className="h2">{step.title}</h2>
             </Stack>
+            {step.content && (
+              <ActionIcon onClick={() => setIsOpen(!isOpen)} outline>
+                {!isOpen ? (
+                  <IconChevronDown stroke={1.5} />
+                ) : (
+                  <IconChevronUp stroke={1.5} />
+                )}
+              </ActionIcon>
+            )}
           </Flex>
+          {isOpen && (
+            <Card p="24" bg="#F8F9FA">
+              <Content {...step.content} />
+            </Card>
+          )}
           <Flex gap={8}>
             <Tag color={step.status === "Завершено" ? "gray.5" : "myColor"}>
               + {step.points} Б
