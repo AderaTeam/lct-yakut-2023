@@ -1,11 +1,12 @@
 import { Context } from "main";
 import { useState, useContext, useEffect } from "react";
 import { ActivePathSwitch } from "./components/ActivePathSwitch";
-import { Flex, Stack } from "@mantine/core";
+import { Flex, Stack, Text } from "@mantine/core";
 import { PathInfo } from "./components/PathInfo";
 import { observer } from "mobx-react-lite";
 import { IPath } from "shared/models/IPath";
 import { PathSteps } from "./components/PathSteps";
+import { NoPath } from "./components/NoPath";
 
 export const MyPathProgress = observer(() => {
   const { UStore } = useContext(Context);
@@ -29,18 +30,24 @@ export const MyPathProgress = observer(() => {
 
   return (
     <Stack gap={32}>
-      <Flex justify={"space-between"} align={"center"}>
-        <ActivePathSwitch
-          path={UStore.user.path}
-          activePathId={activePathId}
-          setActivePathId={setActivePathId}
-        />
-        <PathInfo activePath={activePath} />
-      </Flex>
-      <PathSteps
-        handleStepComplete={handleStepComplete}
-        activePath={activePath}
-      />
+      {UStore.user.path.length ? (
+        <>
+          <Flex justify={"space-between"} align={"center"}>
+            <ActivePathSwitch
+              path={UStore.user.path}
+              activePathId={activePathId}
+              setActivePathId={setActivePathId}
+            />
+            <PathInfo activePath={activePath} />
+          </Flex>
+          <PathSteps
+            handleStepComplete={handleStepComplete}
+            activePath={activePath}
+          />
+        </>
+      ) : (
+        <NoPath />
+      )}
     </Stack>
   );
 });

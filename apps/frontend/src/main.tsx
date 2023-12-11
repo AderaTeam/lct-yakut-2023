@@ -16,13 +16,18 @@ export const Context = createContext<State>({
   UStore,
 });
 
-const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement,
-);
-root.render(
-  <Context.Provider value={{ UStore }}>
-    <MantineProvider theme={theme}>
-      <App />
-    </MantineProvider>
-  </Context.Provider>,
-);
+let container: HTMLElement | null = null;
+
+document.addEventListener("DOMContentLoaded", function (event) {
+  if (!container) {
+    container = document.getElementById("root") as HTMLElement;
+    const root = ReactDOM.createRoot(container);
+    root.render(
+      <Context.Provider value={{ UStore }}>
+        <MantineProvider theme={theme}>
+          <App />
+        </MantineProvider>
+      </Context.Provider>,
+    );
+  }
+});
