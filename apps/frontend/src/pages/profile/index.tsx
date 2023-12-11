@@ -10,7 +10,7 @@ const ProfilePage = () => {
         <ProfileCard />
         <ProfileAchievement />
       </Stack>
-      <Stack gap={24}></Stack>
+      <Stack gap={16}></Stack>
     </MainWrapper>
   );
 };

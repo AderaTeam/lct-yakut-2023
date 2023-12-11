@@ -35,7 +35,7 @@ const MainWrapper = observer(
             <Stack w={497}>
               <div className="wrapper">
                 {children?.length ? (
-                  <Stack gap={24}>
+                  <Stack gap={16}>
                     {/* <ProgressCard /> */}
                     {!UStore?.user?.isAnalyzed ? (
                       <AnalyseCard />

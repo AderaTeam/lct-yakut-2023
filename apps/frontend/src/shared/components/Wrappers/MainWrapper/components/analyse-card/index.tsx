@@ -1,6 +1,8 @@
 import { Avatar, Card, Flex, Stack, Text } from "@mantine/core";
 import { Button } from "shared/components/Button";
 import { IconChevronRight } from "@tabler/icons-react";
+import { useNavigate } from "react-router-dom";
+import { MY_SOCIALS_ROUTE } from "shared/constants/const";
 
 import mage from "shared/assets/analyse-mage.png";
 import steam from "shared/assets/platforms/steam.svg";
@@ -10,9 +12,6 @@ import tg from "shared/assets/platforms/tg.svg";
 import more from "shared/assets/platforms/more.svg";
 
 import style from "./AnalyseCard.module.scss";
-import { useNavigate } from "react-router-dom";
-import { MY_SOCIALS_ROUTE } from "shared/constants/const";
-
 interface AnalyseCardProps {
   isAnalysed?: boolean;
 }

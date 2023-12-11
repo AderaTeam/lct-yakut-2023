@@ -1,14 +1,29 @@
 import { Flex, Stack } from "@mantine/core";
+import { SocialCard } from "./components/SocialCard";
+import { useState } from "react";
+import { Button } from "shared/components/Button";
 
 import od from "shared/assets/mock/od.png";
 import tg from "shared/assets/mock/tg.png";
 import vk from "shared/assets/mock/vk.png";
 import steam from "shared/assets/mock/steam.png";
 import pt from "shared/assets/mock/pt.png";
-import { Card } from "shared/components/Card";
-import { SocialCard } from "./components/SocialCard";
+import { useNavigate } from "react-router-dom";
+import { MAGE_ROUTE } from "shared/constants/const";
 
-export const MySocialsList = () => {
+interface MySocialsListProps {
+  isLoading: boolean;
+  handleAnalysis: Function;
+  result: boolean;
+}
+
+export const MySocialsList = ({
+  isLoading,
+  handleAnalysis,
+  result,
+}: MySocialsListProps) => {
+  const navigate = useNavigate();
+
   const data = [
     {
       id: 0,
@@ -51,12 +66,22 @@ export const MySocialsList = () => {
     <Stack gap={48}>
       {data.filter((item) => item.status === "connected").length ? (
         <Stack gap={24}>
-          <h2 className="h2">Подключенные соц. сети</h2>
+          <Flex justify={"space-between"} align={"center"}>
+            <h2 className="h2">Подключенные соц. сети</h2>
+            <Button
+              disabled={isLoading}
+              onClick={
+                !result ? () => handleAnalysis() : () => navigate(MAGE_ROUTE)
+              }
+            >
+              {result ? "Узнать результат" : "Проанализировать"}
+            </Button>
+          </Flex>
           <Stack gap={12}>
             {data
               .filter((item) => item.status === "connected")
               .map((item) => (
-                <SocialCard key={item.id} social={item} />
+                <SocialCard isLoading={isLoading} key={item.id} social={item} />
               ))}
           </Stack>
         </Stack>

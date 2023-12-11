@@ -3,6 +3,7 @@ import {
   COMMUNITY_ROUTE,
   EDUCATIONS_ROUTE,
   LOGIN_ROUTE,
+  MAGE_ROUTE,
   MY_PATH_ROUTE,
   MY_SOCIALS_ROUTE,
   NEWS_ROUTE,
@@ -28,7 +29,8 @@ const news = lazy(() => import("pages/news"));
 const assistant = lazy(() => import("pages/assistant"));
 const training = lazy(() => import("pages/training"));
 const profile = lazy(() => import("pages/profile"));
-const mySocials = lazy(() => import("pages/my_socials"));
+const mySocials = lazy(() => import("pages/my-socials"));
+const mage = lazy(() => import("pages/mage"));
 
 export const authRoutes = [
   {
@@ -84,6 +86,13 @@ export const authRoutes = [
     path: MY_SOCIALS_ROUTE,
     Component: mySocials,
     title: "Мои соц. сети",
+    isAdmin: true,
+    isHide: true,
+  },
+  {
+    path: MAGE_ROUTE,
+    Component: mage,
+    title: "Маг",
     isAdmin: true,
     isHide: true,
   },

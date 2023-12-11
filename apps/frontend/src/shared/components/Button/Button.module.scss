@@ -8,7 +8,8 @@
   width: fit-content;
   color: #ffff;
   &:disabled {
-    background: #25262b;
+    color: #ffff;
+    background: #ced4da;
   }
 }
 

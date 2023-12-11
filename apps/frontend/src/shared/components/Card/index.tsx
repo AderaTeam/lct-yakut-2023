@@ -10,6 +10,8 @@ interface Props {
   mt?: number;
   mb?: number;
   bg?: string;
+  radius?: string;
+  outline?: boolean;
 }
 
 export const Card = ({
@@ -21,6 +23,8 @@ export const Card = ({
   mt,
   mb,
   bg = "#FFFF",
+  radius,
+  outline,
 }: Props) => {
   return (
     <Stack
@@ -31,6 +35,10 @@ export const Card = ({
       bg={bg}
       w={w}
       h={h}
+      style={{
+        borderRadius: `${radius}`,
+        border: outline ? "2px solid #DEE2E6" : "none",
+      }}
       className={style.card}
     >
       {children}
