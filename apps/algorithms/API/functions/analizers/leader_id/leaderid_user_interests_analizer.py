@@ -3,14 +3,10 @@ import torch
 import pandas as pd
 import numpy as np
 
-def leaderidUserInterestsAnalizer(interests):
-    vectorizer = ioc.require('stdTextVectorizer')
-    text_samples_vectors = ioc.require('smallDescriptionVectors')
-    distAnalizer = ioc.require('simpleDistAnalizer')
-    d = pd.Series(np.zeros(text_samples_vectors.shape[0]))
-    for i in interests:
-        d += distAnalizer(
-            text_for_compare_vectorized = vectorizer(i),
-            vectors_database_for_simple_dist_analize = text_samples_vectors
-        )
-    return d
+def leaderidUserInterestsAnalizer(user_id: int, n_of_works: int):
+    prof_ways_data = ioc.require('profWaysData').reset_index()
+    data = ioc.require('mainLeaderIdUserInfo')(user_id)
+    leaderidUserInterestsDistAnalizer = ioc.require('leaderidUserInterestsDistAnalizer')
+    res = leaderidUserInterestsDistAnalizer(data['Интересы'])
+    res = res.sort_values(ascending=0)
+    return {prof_ways_data['Название профессии'][i]: res[i] for i in res.index.to_list()[0:n_of_works]}
