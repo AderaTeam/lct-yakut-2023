@@ -79,3 +79,30 @@ def root(user_id: int, n_of_works: int=-1):
     print(prof_ways_data.shape, res.shape, res_i)
     return {prof_ways_data['Название профессии'][i]: res[i] for i in res_i[0:n_of_works-1]}
 
+
+# 393854543
+@app.get("/vk/get_spec")
+def root(user_id: int, n_of_works: int=-1):
+    prof_ways_data = ioc.require('profWaysData').reset_index()
+    spec_data = ioc.require('smallSpecDesc')
+    vectorizer = ioc.require('stdTextVectorizer')
+    vk_session = ioc.require('vkSession')
+    subscribes = ioc.require('getVkUserSubscribes')(vk_session=vk_session, user_id=user_id)
+    subscribes_processed = ioc.require('vkSubscribesProcessor')(subscribes)
+    texts = []
+    for i in subscribes_processed:
+        texts += ioc.require('vkWallMainInfoTextExtractor')(i['main_description'][0])
+    v0 = torch.zeros(1024)
+    v0 = torch.zeros([1, 1024])
+    d2 = dict()
+    t = 0
+    for i in texts:
+        v0 += vectorizer(i, 100)
+    for j in spec_data['desc']:
+        v1 = vectorizer(j, 256).unsqueeze(0)
+        # print(v1.shape)
+        d2[t] = torch.nn.CosineSimilarity(dim=1)(v1.detach(), v0.detach()).item()
+        t+=1
+    res = np.argsort(list(d2.values()))[::-1]
+    return spec_data['name'].iloc[res].to_list()
+
