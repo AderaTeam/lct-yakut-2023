@@ -20,6 +20,14 @@ def valuesInitiator():
     
     with open('../secrets.json', 'r') as f:
         secrets = json.load(f)
+
+    with open('../DATA/large_spec_desc_processed.json', 'r') as f:
+        large_spec_desc_processed = json.load(f)
+
+    small_spec_desc = pd.read_csv(
+        '../DATA/spec_num_name_pairs.csv'
+    )
+    
     # user_id = secrets['vk']['test_user_id']
     vk_session = vk_api.VkApi(
         secrets['vk']['phone'], 
@@ -49,3 +57,5 @@ def valuesInitiator():
     ioc.provide('maxPostHistLength', 10)
     ioc.provide('smallDescriptionVectors', small_description_vectors)
     ioc.provide('profWaysData', prof_ways_data)
+    ioc.provide('largeSpecDescProcessed', large_spec_desc_processed)
+    ioc.provide('smallSpecDesc', small_spec_desc)
