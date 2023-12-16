@@ -15,17 +15,17 @@ def valuesInitiator():
     tokenizer = AutoTokenizer.from_pretrained("ai-forever/sbert_large_nlu_ru")
     vectorizer = AutoModel.from_pretrained("ai-forever/sbert_large_nlu_ru")
 
-    with open('../DATA/less_semantic_words.txt', 'r', encoding='utf-8') as f:
+    with open('./DATA/less_semantic_words.txt', 'r', encoding='utf-8') as f:
         stopwords = pd.Series(f.read().split('\n')).unique()
     
-    with open('../secrets.json', 'r') as f:
+    with open('./DATA/secrets.json', 'r') as f:
         secrets = json.load(f)
 
-    with open('../DATA/large_spec_desc_processed.json', 'r') as f:
+    with open('./DATA/large_spec_desc_processed.json', 'r') as f:
         large_spec_desc_processed = json.load(f)
 
     small_spec_desc = pd.read_csv(
-        '../DATA/spec_num_name_pairs.csv'
+        './DATA/spec_num_name_pairs.csv'
     )
     
     # user_id = secrets['vk']['test_user_id']
@@ -38,7 +38,7 @@ def valuesInitiator():
     )
     vk_session.auth(token_only=True)
     small_description_vectors = torch.load('../DATA/small_description_vectors.pt')
-    prof_ways_data = pd.read_excel('../DATA/Профессии_ОКСО_ ЛЦТ_Профилум.xlsx', index_col='№').loc[:, ['Отрасль текстом', 'Название профессии']]
+    prof_ways_data = pd.read_excel('./DATA/Профессии_ОКСО_ ЛЦТ_Профилум.xlsx', index_col='№').loc[:, ['Отрасль текстом', 'Название профессии']]
 
     
     vk_session.auth(token_only=True)

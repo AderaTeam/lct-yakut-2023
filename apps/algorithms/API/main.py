@@ -25,7 +25,7 @@ valuesInitiator()
 
 # 2234799
 @app.get("/leaderid/get_works")
-def root(user_id: int, n_of_works: int=-1):
+def root1(user_id: int, n_of_works: int=-1):
     res = ioc.require('leaderidUserInterestsAnalizer')(user_id, n_of_works)
     # res = ioc.require('leaderidUserEventsAnalizer')(user_id, n_of_works)
     return res
@@ -33,7 +33,7 @@ def root(user_id: int, n_of_works: int=-1):
 
 # 2234799
 @app.get("/leaderid/get_spec")
-def root(user_id: int, n_of_works: int=-1):
+def root2(user_id: int, n_of_works: int=-1):
     data = ioc.require('mainLeaderIdUserInfo')(user_id)
     vectorizer = ioc.require('stdTextVectorizer')
     # spec_data = ioc.require('largeSpecDescProcessed')
@@ -61,7 +61,7 @@ def root(user_id: int, n_of_works: int=-1):
 
 # 393854543
 @app.get("/vk/simple_analize_interests")
-def root(user_id: int, n_of_works: int=-1):
+def root3(user_id: int, n_of_works: int=-1):
     prof_ways_data = ioc.require('profWaysData').reset_index()
     text_samples_vectors = ioc.require('smallDescriptionVectors')
     vectorizer = ioc.require('stdTextVectorizer')
@@ -82,7 +82,7 @@ def root(user_id: int, n_of_works: int=-1):
 
 # 393854543
 @app.get("/vk/get_spec")
-def root(user_id: int, n_of_works: int=-1):
+def root4(user_id: int, n_of_works: int=-1):
     prof_ways_data = ioc.require('profWaysData').reset_index()
     spec_data = ioc.require('smallSpecDesc')
     vectorizer = ioc.require('stdTextVectorizer')
